@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Salesforce Shohreh — Salesforce Administrator portfolio featuring CRM solutions, automation, and business operations.">
+  <title>Salesforce Shohreh | Portfolio</title>
+  <style>
+    :root {
+      --navy: #0c1930;
+      --blue: #4c98ef;
+      --light: #f3f7fc;
+      --text: #23324a;
+      --muted: #64748b;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    nav {
+      background: var(--navy);
+      color: white;
+      padding: 18px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav strong { font-size: 1.15rem; }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 0.9rem;
+    }
+
+    nav a:hover { color: #93c5fd; }
+
+    header {
+      padding: 85px 8%;
+      background: linear-gradient(135deg, #0c1930, #173e70);
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: clamp(2.3rem, 6vw, 4rem);
+      margin: 0 0 10px;
+    }
+
+    header h2 {
+      color: #a8d4ff;
+      font-weight: 400;
+      font-size: 1.2rem;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 25px auto;
+      color: #e1ebf8;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--blue);
+      color: white;
+      padding: 12px 26px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 8px;
+    }
+
+    .button:hover { background: #287bda; }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 65px 24px;
+    }
+
+    h2.section-title {
+      font-size: 1.85rem;
+      color: var(--navy);
+      margin-bottom: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 26px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 5px 18px rgba(15, 23, 42, 0.04);
+    }
+
+    .card h3 {
+      color: #17487f;
+      margin-top: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      background: #e7f1ff;
+      color: #15559a;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin: 4px 4px 4px 0;
+    }
+
+    .status {
+      color: #80590c;
+      background: #fff3cd;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #dae7f7;
+      padding: 28px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a { color: #a8d4ff; }
+
+    @media (max-width: 600px) {
+      nav { justify-content: center; text-align: center; }
+      nav a { margin: 0 8px; }
+      header { padding: 65px 22px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <strong>Salesforce Shohreh</strong>
+    <div>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Salesforce Shohreh</h1>
+    <h2>Salesforce Certified Administrator | CRM Solutions | Business Operations</h2>
+    <p>
+      Transforming business challenges into practical Salesforce solutions
+      through automation, data management, and process improvement.
+    </p>
+    <a class="button" href="#projects">Explore My Projects</a>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        Welcome! I'm a Salesforce Certified Administrator with a background
+        in business operations, customer support, and data management.
+        My experience combines operational problem-solving with hands-on
+        Salesforce configuration and administration.
+      </p>
+      <p>
+        Through Salesforce projects and continued learning, I develop
+        practical solutions involving CRM configuration, automation,
+        reporting, and data quality.
+      </p>
+      <div class="card">
+        <h3>Salesforce Certification</h3>
+        <p>Salesforce Certified Platform Administrator — 2026</p>
+        <p>Per Scholas Salesforce Administrator & Agentforce Program Graduate</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Salesforce Administration</h3>
+          <p>Custom Objects, Fields, Record Types, Page Layouts, Validation Rules, User Management, Permission Sets</p>
+        </div>
+        <div class="card">
+          <h3>Automation & Data</h3>
+          <p>Salesforce Flow Builder, SOQL, Data Management, Reports, Dashboards, Data Validation</p>
+        </div>
+        <div class="card">
+          <h3>Business Operations</h3>
+          <p>CRM Operations, Requirements Gathering, Process Improvement, Workflow Analysis, SOP Development</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="grid">
+
+        <article class="card">
+          <span class="status">In Development</span>
+          <h3>Gold Drip | Salesforce Business Solutions</h3>
+          <p>
+            A business-focused Salesforce portfolio project exploring
+            CRM operations, workflow optimization, and data management
+            as part of Gold Drip's evolving business model.
+          </p>
+          <span class="tag">Salesforce</span>
+          <span class="tag">Business Operations</span>
+          <span class="tag">CRM</span>
+        </article>
+
+        <article class="card">
+          <h3>ReRun Athletics | Salesforce Capstone</h3>
+          <p>
+            A custom Salesforce application created during Per Scholas
+            training to organize sales tracking, customer service logs,
+            sample requests, and product workflows.
+          </p>
+          <span class="tag">Custom Objects</span>
+          <span class="tag">Flow Builder</span>
+          <span class="tag">Reports & Dashboards</span>
+        </article>
+
+        <article class="card">
+          <span class="status">Coming Soon</span>
+          <h3>Salesforce Video Demonstrations</h3>
+          <p>
+            Narrated technical demonstrations covering Salesforce
+            configuration, automation, SOQL queries, and practical
+            troubleshooting exercises.
+          </p>
+          <span class="tag">Salesforce Learning</span>
+          <span class="tag">Technical Demos</span>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Connect With Me</h2>
+      <p>
+        Explore my repositories and follow along as I document
+        my Salesforce projects and professional development.
+      </p>
+      <a class="button" href="https://github.com/SalesforceShohreh" target="_blank" rel="noopener noreferrer">
+        View My GitHub
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>Salesforce Shohreh | Salesforce Administrator Portfolio</p>
+    <p>Built with GitHub Pages</p>
+  </footer>
+
+</body>
+</html>
