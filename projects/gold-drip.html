@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gold Drip Salesforce Business Solutions project by Salesforce Shohreh.">
+  <title>Gold Drip Project | Salesforce Shohreh</title>
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --card: #102039;
+      --text: #eaf2ff;
+      --muted: #b8c7df;
+      --blue: #63a7ff;
+      --line: rgba(133, 182, 255, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right,
+          rgba(59,130,246,0.16), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    nav {
+      background: rgba(7,17,31,0.9);
+      padding: 20px 8%;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    nav strong { color: white; }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: 1050px;
+      margin: auto;
+      padding: 45px 24px;
+    }
+
+    .hero {
+      padding: 65px 30px;
+      text-align: center;
+      background: linear-gradient(135deg,
+        #0c1930, #173e70);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+    }
+
+    .status {
+      display: inline-block;
+      color: #ffe2a3;
+      background: rgba(242,200,107,0.13);
+      border: 1px solid rgba(242,200,107,0.25);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      margin: 20px 0;
+    }
+
+    h2 {
+      color: white;
+      margin-top: 0;
+    }
+
+    p { color: var(--muted); }
+
+    .hero p {
+      max-width: 680px;
+      margin: auto;
+    }
+
+    section {
+      margin-top: 45px;
+      scroll-margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(16,32,57,0.85);
+      border: 1px solid var(--line);
+      padding: 30px;
+      border-radius: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(99,167,255,0.12);
+      border-radius: 20px;
+      color: #dcecff;
+      font-size: 0.85rem;
+      margin: 5px 5px 5px 0;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 22px;
+      background: var(--blue);
+      color: #07111f;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #a8d4ff;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px;
+      border-top: 1px solid var(--line);
+      margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 45px 20px; }
+      .card { padding: 22px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <strong>Salesforce Shohreh</strong>
+    <a href="../index.html">← Back to Portfolio</a>
+  </nav>
+
+  <main class="container">
+
+    <header class="hero">
+      <span class="status">In Development</span>
+      <h1>Gold Drip | Salesforce Business Solutions</h1>
+      <p>
+        A business-focused Salesforce project exploring
+        CRM operations, data management, and workflow
+        improvements as part of Gold Drip's evolving
+        business model.
+      </p>
+    </header>
+
+    <section>
+      <div class="card">
+        <h2>Project Overview</h2>
+        <p>
+          Gold Drip is undergoing a business model
+          restructuring. This project documents the
+          exploration and development of Salesforce
+          solutions to support its evolving
+          operational requirements.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Project Focus Areas</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h2>CRM Operations</h2>
+          <p>
+            Exploring how Salesforce can help organize
+            business and customer-related workflows.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Data Management</h2>
+          <p>
+            Evaluating approaches to structuring
+            and maintaining business information
+            within Salesforce.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Process Improvement</h2>
+          <p>
+            Identifying opportunities to improve
+            operational consistency and reduce
+            repetitive administrative work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h2>Technologies & Skills</h2>
+        <span class="tag">Salesforce CRM</span>
+        <span class="tag">Business Analysis</span>
+        <span class="tag">Data Management</span>
+        <span class="tag">Process Improvement</span>
+        <span class="tag">Requirements Gathering</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h2>Development & Testing</h2>
+        <p>
+          This project is in active development.
+          Verified configurations, testing results,
+          and technical demonstrations will be
+          documented as project milestones are completed.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h2>Project Demonstrations</h2>
+        <p>
+          Salesforce screenshots, sanitized
+          configuration examples, and narrated
+          demonstrations will be added when
+          they are ready for public sharing.
+        </p>
+        <span class="status">Coming Soon</span>
+      </div>
+    </section>
+
+    <section>
+      <a class="button" href="../index.html">
+        Back to Portfolio
+      </a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Salesforce Shohreh | Gold Drip Project</p>
+    <p>Built with GitHub Pages</p>
+  </footer>
+
+</body>
+</html>
