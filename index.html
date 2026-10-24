@@ -1,102 +1,319 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Salesforce Shohreh — Salesforce Administrator portfolio featuring CRM solutions, automation, and business operations.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Salesforce Shohreh — Salesforce Administrator portfolio featuring CRM solutions, automation, Agentforce, AI, and business operations."
+  />
   <title>Salesforce Shohreh | Portfolio</title>
 
   <style>
     :root {
-      --navy: #0c1930;
-      --blue: #4c98ef;
-      --light: #f3f7fc;
-      --text: #23324a;
-      --muted: #64748b;
+      --bg: #07111f;
+      --bg-alt: #0b1728;
+      --navy: #0d1b2f;
+      --navy-2: #122844;
+      --card: rgba(16, 30, 52, 0.78);
+      --card-solid: #0f1f35;
+      --line: rgba(133, 182, 255, 0.18);
+      --text: #eaf2ff;
+      --muted: #b8c7df;
+      --blue: #63a7ff;
+      --blue-2: #3b82f6;
+      --cyan: #61dafb;
+      --gold: #f2c86b;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      --glow: 0 0 0 1px rgba(99, 167, 255, 0.15), 0 0 30px rgba(59, 130, 246, 0.12);
+      --radius: 18px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--light);
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(97, 218, 251, 0.10), transparent 22%),
+        linear-gradient(180deg, #06101d 0%, #081322 35%, #091525 100%);
       color: var(--text);
       line-height: 1.7;
     }
 
+    a {
+      color: inherit;
+    }
+
+    .page-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(73, 130, 255, 0.12), transparent 18%),
+        radial-gradient(circle at 85% 10%, rgba(97, 218, 251, 0.10), transparent 16%);
+      z-index: 0;
+    }
+
     nav {
-      background: var(--navy);
-      color: white;
-      padding: 18px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(7, 17, 31, 0.75);
+      border-bottom: 1px solid rgba(133, 182, 255, 0.10);
+      padding: 16px 8%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
+      gap: 16px;
     }
 
-    nav strong { font-size: 1.15rem; }
+    nav strong {
+      font-size: 1.12rem;
+      letter-spacing: 0.3px;
+      color: #ffffff;
+    }
+
+    nav .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
 
     nav a {
-      color: white;
       text-decoration: none;
-      margin-left: 18px;
-      font-size: 0.9rem;
+      color: #d8e6ff;
+      font-size: 0.95rem;
+      transition: color 0.25s ease, transform 0.25s ease;
     }
 
-    nav a:hover { color: #93c5fd; }
+    nav a:hover {
+      color: var(--cyan);
+      transform: translateY(-1px);
+    }
 
-    header {
-      padding: 85px 8%;
-      background: linear-gradient(135deg, #0c1930, #173e70);
-      color: white;
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 72px 8% 90px;
+    }
+
+    .hero-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      background:
+        linear-gradient(135deg, rgba(12, 29, 54, 0.85), rgba(18, 40, 68, 0.82));
+      border: 1px solid rgba(133, 182, 255, 0.12);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      top: -120px;
+      right: -80px;
+      background: radial-gradient(circle, rgba(99, 167, 255, 0.20), transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-shell::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      bottom: -120px;
+      left: -50px;
+      background: radial-gradient(circle, rgba(97, 218, 251, 0.12), transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
       text-align: center;
+      padding: 78px 28px;
     }
 
-    header h1 {
-      font-size: clamp(2.3rem, 6vw, 4rem);
-      margin: 0 0 10px;
+    .profile-logo {
+      display: block;
+      width: 172px;
+      height: 172px;
+      object-fit: contain;
+      margin: 0 auto 26px;
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.10),
+        0 0 0 10px rgba(99, 167, 255, 0.07),
+        0 10px 35px rgba(0, 0, 0, 0.35);
     }
 
-    header h2 {
-      color: #a8d4ff;
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(99, 167, 255, 0.10);
+      border: 1px solid rgba(99, 167, 255, 0.16);
+      color: #d9ebff;
+      font-size: 0.82rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.6rem, 7vw, 4.8rem);
+      line-height: 1.08;
+      color: #ffffff;
+      letter-spacing: -1px;
+    }
+
+    .hero h2 {
+      margin: 0;
+      color: #acd0ff;
+      font-size: 1.14rem;
       font-weight: 400;
-      font-size: 1.2rem;
     }
 
-    header p {
-      max-width: 700px;
-      margin: 25px auto;
-      color: #e1ebf8;
+    .hero p {
+      max-width: 760px;
+      margin: 24px auto 0;
+      color: #dbe8fc;
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .button {
       display: inline-block;
-      background: var(--blue);
-      color: white;
-      padding: 12px 26px;
-      border-radius: 7px;
+      padding: 13px 26px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: bold;
-      margin: 8px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     }
 
-    .button:hover { background: #287bda; }
+    .button.primary {
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      color: white;
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.26);
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: #e8f1ff;
+      border: 1px solid rgba(133, 182, 255, 0.18);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
 
     section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 65px 24px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 34px 24px 84px;
+    }
+
+    .section-header {
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      color: var(--cyan);
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 8px;
+      display: block;
     }
 
     h2.section-title {
-      font-size: 1.85rem;
-      color: var(--navy);
-      margin-bottom: 25px;
+      margin: 0;
+      font-size: 2rem;
+      color: #ffffff;
+      letter-spacing: -0.4px;
+    }
+
+    .section-subtext {
+      margin-top: 12px;
+      max-width: 780px;
+      color: var(--muted);
+    }
+
+    .glass-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--glow);
+      backdrop-filter: blur(14px);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .about-copy,
+    .cert-card,
+    .card,
+    .contact-card {
+      padding: 28px;
+    }
+
+    .about-copy p,
+    .cert-card p,
+    .contact-card p {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .cert-card h3,
+    .card h3,
+    .contact-card h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      color: #ffffff;
+      font-size: 1.18rem;
+    }
+
+    .cert-meta {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(97, 218, 251, 0.10);
+      color: #d6f8ff;
+      font-size: 0.82rem;
+      border: 1px solid rgba(97, 218, 251, 0.18);
     }
 
     .grid {
@@ -106,69 +323,129 @@
     }
 
     .card {
-      background: white;
-      padding: 26px;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 5px 18px rgba(15, 23, 42, 0.04);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--glow);
+      backdrop-filter: blur(14px);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .card h3 {
-      color: #17487f;
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(99, 167, 255, 0.36);
+      box-shadow:
+        0 0 0 1px rgba(99, 167, 255, 0.18),
+        0 16px 40px rgba(0, 0, 0, 0.28),
+        0 0 28px rgba(59, 130, 246, 0.10);
+    }
+
+    .card p {
       margin-top: 0;
+      color: var(--muted);
     }
 
     .tag {
       display: inline-block;
-      padding: 5px 12px;
-      background: #e7f1ff;
-      color: #15559a;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      margin: 4px 4px 4px 0;
+      padding: 6px 11px;
+      background: rgba(99, 167, 255, 0.10);
+      color: #dcecff;
+      border: 1px solid rgba(99, 167, 255, 0.16);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      margin: 4px 6px 4px 0;
     }
 
     .status {
-      color: #80590c;
-      background: #fff3cd;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 14px;
+      color: #fff1c4;
+      background: rgba(242, 200, 107, 0.12);
+      border: 1px solid rgba(242, 200, 107, 0.24);
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 0.78rem;
       font-weight: bold;
     }
 
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .contact-card ul {
+      padding-left: 18px;
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .contact-card li {
+      margin-bottom: 8px;
+    }
+
     footer {
-      background: var(--navy);
-      color: #dae7f7;
-      padding: 28px;
+      padding: 30px 24px 50px;
       text-align: center;
-      font-size: 0.9rem;
+      color: #aab9d1;
+      font-size: 0.92rem;
+      border-top: 1px solid rgba(133, 182, 255, 0.08);
     }
 
-    footer a { color: #a8d4ff; }
-
-    @media (max-width: 600px) {
-      nav { justify-content: center; text-align: center; }
-      nav a { margin: 0 8px; }
-      header { padding: 65px 22px; }
+    footer p {
+      margin: 6px 0;
     }
 
-.profile-logo {
-  display: block;
-  width: 170px;
-  height: 170px;
-  object-fit: contain;
-  margin: 0 auto 24px;
-  border-radius: 50%;
-}
+    @media (max-width: 900px) {
+      .about-grid,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        padding: 62px 22px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav .nav-links {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 48px 16px 68px;
+      }
+
+      section {
+        padding: 20px 18px 70px;
+      }
+
+      .profile-logo {
+        width: 145px;
+        height: 145px;
+      }
+
+      .hero h2 {
+        font-size: 1rem;
+      }
+
+      .hero p {
+        font-size: 0.98rem;
+      }
+    }
   </style>
 </head>
-
 <body>
+  <div class="page-glow"></div>
 
   <nav>
     <strong>Salesforce Shohreh</strong>
-    <div>
+    <div class="nav-links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
@@ -176,73 +453,125 @@
     </div>
   </nav>
 
-  <header>
-  <img
-    src="images/SalesforceShohreh_GitHub_Profile.png"
-    alt="Salesforce Shohreh illustrated logo"
-    class="profile-logo"
-  >
-  <h1>Salesforce Shohreh</h1>
-    <h2>Salesforce Certified Administrator | Agentforce & AI | CRM Solutions</h2>
-    <p>
-      Transforming business challenges into practical Salesforce solutions
-      through automation, data management, and process improvement.
-    </p>
-    <a class="button" href="#projects">Explore My Projects</a>
+  <header class="hero">
+    <div class="hero-shell">
+      <div class="hero-inner">
+        <span class="eyebrow">Modern Tech & AI Portfolio</span>
+
+        <img
+          src="images/SalesforceShohreh_GitHub_Profile.png"
+          alt="Salesforce Shohreh illustrated logo"
+          class="profile-logo"
+        />
+
+        <h1>Salesforce Shohreh</h1>
+        <h2>Salesforce Certified Administrator | Agentforce & AI | CRM Solutions</h2>
+
+        <p>
+          Transforming business challenges into practical Salesforce solutions
+          through automation, data management, and process improvement.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore My Projects</a>
+          <a class="button secondary" href="#contact">Connect With Me</a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main>
     <section id="about">
-      <h2 class="section-title">About Me</h2>
-      <p>
-        Welcome! I'm a Salesforce Certified Administrator with a background
-        in business operations, customer support, and data management.
-        My experience combines operational problem-solving with hands-on
-        Salesforce configuration and administration.
-      </p>
-      <p>
-        Through Salesforce projects and continued learning, I develop
-        practical solutions involving CRM configuration, automation,
-        reporting, and data quality.
-      </p>
-      <div class="card">
-        <h3>Salesforce Certification</h3>
-        <p>Salesforce Certified Platform Administrator — 2026</p>
-        <p>Per Scholas Salesforce Administrator & Agentforce Program Graduate</p>
+      <div class="section-header">
+        <span class="section-kicker">Introduction</span>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtext">
+          A portfolio built to showcase Salesforce administration, Agentforce and AI,
+          CRM solutions, and business operations in a modern technical format.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="glass-card about-copy">
+          <p>
+            Welcome! I'm a Salesforce Certified Administrator with a background
+            in business operations, customer support, and data management.
+            My experience combines operational problem-solving with hands-on
+            Salesforce configuration and administration.
+          </p>
+          <p>
+            Through Salesforce projects and continued learning, I develop
+            practical solutions involving CRM configuration, automation,
+            reporting, and data quality.
+          </p>
+        </div>
+
+        <div class="glass-card cert-card">
+          <span class="cert-meta">Certification & Training</span>
+          <h3>Salesforce Certification</h3>
+          <p>Salesforce Certified Platform Administrator — 2026</p>
+          <p>Per Scholas Salesforce Administrator & Agentforce Program Graduate</p>
+        </div>
       </div>
     </section>
 
     <section id="skills">
-      <h2 class="section-title">Technical Skills</h2>
+      <div class="section-header">
+        <span class="section-kicker">Capabilities</span>
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtext">
+          Core strengths across Salesforce administration, automation,
+          CRM operations, and AI-assisted work.
+        </p>
+      </div>
+
       <div class="grid">
         <div class="card">
           <h3>Salesforce Administration</h3>
-          <p>Custom Objects, Fields, Record Types, Page Layouts, Validation Rules, User Management, Permission Sets</p>
+          <p>
+            Custom Objects, Fields, Record Types, Page Layouts,
+            Validation Rules, User Management, Permission Sets
+          </p>
         </div>
+
         <div class="card">
           <h3>Automation & Data</h3>
-          <p>Salesforce Flow Builder, SOQL, Data Management, Reports, Dashboards, Data Validation</p>
+          <p>
+            Salesforce Flow Builder, SOQL, Data Management,
+            Reports, Dashboards, Data Validation
+          </p>
         </div>
+
         <div class="card">
           <h3>Business Operations</h3>
-          <p>CRM Operations, Requirements Gathering, Process Improvement, Workflow Analysis, SOP Development</p>
-       </div> 
-<div class="card">
-  <h3>Agentforce & Artificial Intelligence</h3>
-  <p>
-    Salesforce Agentforce Fundamentals, Generative AI,
-    Prompt Development, AI-Assisted Research,
-    AI Content Development, and Output Validation.
-  </p>
-</div>
-
+          <p>
+            CRM Operations, Requirements Gathering, Process Improvement,
+            Workflow Analysis, SOP Development
+          </p>
         </div>
+
+        <div class="card">
+          <h3>Agentforce & Artificial Intelligence</h3>
+          <p>
+            Salesforce Agentforce Fundamentals, Generative AI,
+            Prompt Development, AI-Assisted Research,
+            AI Content Development, and Output Validation
+          </p>
+        </div>
+      </div>
     </section>
 
     <section id="projects">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="grid">
+      <div class="section-header">
+        <span class="section-kicker">Portfolio Work</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtext">
+          Selected projects demonstrating Salesforce configuration,
+          AI-assisted learning, and process-focused problem solving.
+        </p>
+      </div>
 
+      <div class="grid">
         <article class="card">
           <span class="status">In Development</span>
           <h3>Gold Drip | Salesforce Business Solutions</h3>
@@ -268,22 +597,23 @@
           <span class="tag">Reports & Dashboards</span>
         </article>
 
-<article class="card">
-  <h3>AI-Assisted Salesforce Learning Resources | Per Scholas</h3>
-  <p>
-    Developed an AI-assisted Salesforce learning resource
-    during Per Scholas training, transforming Salesforce
-    administration concepts into structured flashcards,
-    practice exercises, and scenario-based learning materials.
-    Applied generative AI and independently reviewed outputs
-    for technical accuracy and instructional quality.
-  </p>
-  <span class="tag">Generative AI</span>
-  <span class="tag">Prompt Development</span>
-  <span class="tag">Salesforce</span>
-  <span class="tag">Learning Resources</span>
-</article>
- <article class="card">
+        <article class="card">
+          <h3>AI-Assisted Salesforce Learning Resources | Per Scholas</h3>
+          <p>
+            Developed an AI-assisted Salesforce learning resource
+            during Per Scholas training, transforming Salesforce
+            administration concepts into structured flashcards,
+            practice exercises, and scenario-based learning materials.
+            Applied generative AI and independently reviewed outputs
+            for technical accuracy and instructional quality.
+          </p>
+          <span class="tag">Generative AI</span>
+          <span class="tag">Prompt Development</span>
+          <span class="tag">Salesforce</span>
+          <span class="tag">Learning Resources</span>
+        </article>
+
+        <article class="card">
           <span class="status">Coming Soon</span>
           <h3>Salesforce Video Demonstrations</h3>
           <p>
@@ -294,19 +624,50 @@
           <span class="tag">Salesforce Learning</span>
           <span class="tag">Technical Demos</span>
         </article>
-
       </div>
     </section>
 
     <section id="contact">
-      <h2 class="section-title">Connect With Me</h2>
-      <p>
-        Explore my repositories and follow along as I document
-        my Salesforce projects and professional development.
-      </p>
-      <a class="button" href="https://github.com/SalesforceShohreh" target="_blank" rel="noopener noreferrer">
-        View My GitHub
-      </a>
+      <div class="section-header">
+        <span class="section-kicker">Next Step</span>
+        <h2 class="section-title">Connect With Me</h2>
+        <p class="section-subtext">
+          Explore my public GitHub work and follow my continued
+          growth in Salesforce, Agentforce, AI, and business operations.
+        </p>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="glass-card contact-card">
+          <h3>Portfolio Focus</h3>
+          <p>
+            This portfolio is designed to highlight practical project work,
+            technical development, and continued learning while keeping
+            private projects and sensitive details protected.
+          </p>
+          <ul>
+            <li>Salesforce Administration</li>
+            <li>Agentforce & AI</li>
+            <li>CRM Solutions</li>
+            <li>Business Operations</li>
+          </ul>
+        </div>
+
+        <div class="glass-card contact-card">
+          <h3>GitHub</h3>
+          <p>
+            View my repositories and portfolio progress through my GitHub profile.
+          </p>
+          <a
+            class="button primary"
+            href="https://github.com/SalesforceShohreh"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View My GitHub
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -314,6 +675,5 @@
     <p>Salesforce Shohreh | Salesforce Administrator Portfolio</p>
     <p>Built with GitHub Pages</p>
   </footer>
-
 </body>
 </html>
