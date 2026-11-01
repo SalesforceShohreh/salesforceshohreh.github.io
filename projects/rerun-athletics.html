@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ReRun Athletics Salesforce Administration Capstone — automation, data quality, AI solution design, and team collaboration.">
+  <title>ReRun Athletics | Salesforce Shohreh</title>
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --card: #102039;
+      --text: #eaf2ff;
+      --muted: #b8c7df;
+      --blue: #63a7ff;
+      --cyan: #61dafb;
+      --line: rgba(133,182,255,0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right,
+          rgba(59,130,246,0.17), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: var(--blue); }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 20px 8%;
+      background: rgba(7,17,31,0.9);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav strong { color: white; }
+
+    nav a { text-decoration: none; }
+
+    nav a:hover { text-decoration: underline; }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 45px 24px;
+    }
+
+    .hero {
+      padding: 65px 30px;
+      text-align: center;
+      background: linear-gradient(135deg,#0c1930,#173e70);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 30px;
+      color: #d5f8ff;
+      background: rgba(97,218,251,0.1);
+      border: 1px solid rgba(97,218,251,0.25);
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem,5vw,3.5rem);
+      line-height: 1.2;
+      margin: 20px 0;
+    }
+
+    h2, h3 { color: white; }
+
+    .hero p {
+      max-width: 730px;
+      margin: 16px auto;
+    }
+
+    p, li { color: var(--muted); }
+
+    section { margin-top: 45px; }
+
+    .card {
+      background: rgba(16,32,57,0.85);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .card h2, .card h3 { margin-top: 0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+    }
+
+    .grid .card {
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .grid .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--blue);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      margin: 5px 5px 5px 0;
+      background: rgba(99,167,255,0.12);
+      color: #dcecff;
+      border-radius: 20px;
+      font-size: 0.82rem;
+    }
+
+    .label {
+      color: var(--cyan);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+
+    .evidence {
+      padding: 22px;
+      border: 1px dashed rgba(133,182,255,0.4);
+      border-radius: 14px;
+      margin-top: 16px;
+      background: rgba(99,167,255,0.04);
+    }
+
+    .button {
+      display: inline-block;
+      background: linear-gradient(135deg,#63a7ff,#3b82f6);
+      color: white;
+      padding: 12px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .button:hover { background: #287bda; }
+
+    footer {
+      padding: 35px;
+      margin-top: 50px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width:600px) {
+      nav { padding: 18px 20px; }
+      main { padding: 24px 16px; }
+      .hero { padding: 44px 20px; }
+      .card { padding: 22px; }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior: auto; }
+      .grid .card { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <strong>Salesforce Shohreh</strong>
+    <a href="../index.html">← Back to Portfolio</a>
+  </nav>
+
+  <main>
+
+    <header class="hero">
+      <span class="status">Completed Team Capstone</span>
+      <h1>ReRun Athletics | Salesforce Capstone</h1>
+      <p>
+        Salesforce Administration & Agentforce Program
+        | Per Scholas | 2026
+      </p>
+      <p>
+        A collaborative Salesforce implementation project
+        focused on improving sales operations, customer
+        service, data quality, and workflow automation.
+      </p>
+      <p>
+        <strong>My Role:</strong>
+        Salesforce Consultant & Administrator
+      </p>
+    </header>
+
+    <section>
+      <div class="card">
+        <span class="label">Project Overview</span>
+        <h2>The Business Challenge</h2>
+        <p>
+          ReRun Athletics is a fictional growing athletic
+          footwear company used for a Salesforce capstone.
+          Its existing spreadsheet-based processes presented
+          challenges involving duplicate records,
+          inconsistent customer follow-ups, product data
+          organization, and limited sales visibility.
+        </p>
+        <p>
+          Our five-member team collaborated to develop
+          a Salesforce Lightning application addressing
+          these operational challenges through
+          configuration, automation, reporting,
+          and customer service workflows.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <span class="label">Individual Work</span>
+      <h2>My Salesforce Contributions</h2>
+
+      <div class="grid">
+
+        <article class="card">
+          <h3>Flow Automation</h3>
+          <p>
+            Built a record-triggered Salesforce Flow
+            to notify Task owners one day before
+            their follow-up tasks were due.
+          </p>
+          <span class="tag">Flow Builder</span>
+          <span class="tag">Scheduled Paths</span>
+          <span class="tag">Tasks</span>
+        </article>
+
+        <article class="card">
+          <h3>Flow Debugging & Testing</h3>
+          <p>
+            Debugged the reminder automation and
+            verified that the scheduled notification
+            was queued for execution ahead of
+            the Task due date.
+          </p>
+          <span class="tag">Flow Debugging</span>
+          <span class="tag">QA Testing</span>
+        </article>
+
+        <article class="card">
+          <h3>Field History Tracking</h3>
+          <p>
+            Configured history tracking for
+            Opportunity Stage, Close Date, and Amount,
+            along with Account ownership,
+            address, and phone information.
+          </p>
+          <span class="tag">Data Auditing</span>
+          <span class="tag">Salesforce Setup</span>
+        </article>
+
+        <article class="card">
+          <h3>Product Data Preparation</h3>
+          <p>
+            Updated and organized a 20-record
+            product CSV dataset containing eight
+            product attributes to support
+            Salesforce catalog and pricing work.
+            A teammate handled the data import.
+          </p>
+          <span class="tag">CSV</span>
+          <span class="tag">Data Preparation</span>
+        </article>
+
+        <article class="card">
+          <h3>AI Case Summary Blueprint</h3>
+          <p>
+            Designed a Salesforce Prompt Builder
+            solution blueprint for summarizing
+            customer service Cases.
+            Documented data grounding,
+            human-review safeguards, and test criteria
+            for another team member to implement.
+          </p>
+          <span class="tag">Prompt Builder Design</span>
+          <span class="tag">AI Documentation</span>
+        </article>
+
+        <article class="card">
+          <h3>Technical Documentation</h3>
+          <p>
+            Documented automation configuration,
+            follow-up activity visibility,
+            successful debugging, and
+            Field History Tracking settings
+            with supporting Salesforce screenshots.
+          </p>
+          <span class="tag">Documentation</span>
+          <span class="tag">Business Requirements</span>
+        </article>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <span class="label">Team Collaboration</span>
+        <h2>Overall Salesforce Implementation</h2>
+        <p>
+          In addition to my individual contributions,
+          our team worked together to deliver
+          the following components:
+        </p>
+        <div class="grid">
+          <div>
+            <ul>
+              <li>Branded Salesforce Lightning application</li>
+              <li>Custom Sample Request tracking</li>
+              <li>Centralized Accounts and Contacts</li>
+              <li>Product catalog and Price Book</li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li>Wholesale and retail sales processes</li>
+              <li>Customer service Case workflows</li>
+              <li>Sales reports and dashboards</li>
+              <li>Role-based access and data quality controls</li>
+            </ul>
+          </div>
+        </div>
+        <p>
+          These were collaborative team deliverables,
+          not features independently implemented by me.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <span class="label">Technical Validation</span>
+        <h2>Testing & Evidence</h2>
+        <p>
+          My automation documentation records a
+          successful scheduled-path debug and a
+          reminder queued one day before the
+          related Task's due date.
+        </p>
+        <p>
+          Salesforce configuration screenshots also
+          document Opportunity and Account
+          Field History Tracking settings.
+        </p>
+        <div class="evidence">
+          <strong>Salesforce Configuration Screenshots</strong>
+          <p>
+            Selected Flow debugging, scheduled reminder,
+            and Field History Tracking screenshots
+            will be added after review for public sharing.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <span class="label">Business Value</span>
+        <h2>Solution Impact</h2>
+        <p>
+          The implemented task reminder automation
+          supports more consistent follow-up management
+          and reduces the risk of overlooked activities.
+        </p>
+        <p>
+          Field History Tracking provides visibility
+          into changes to important sales and
+          account information, supporting better
+          record auditing and team coordination.
+        </p>
+        <p>
+          The broader team solution was designed
+          to improve data consistency, customer
+          service coordination, and pipeline visibility.
+          No production performance metrics are claimed.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <span class="label">Technologies</span>
+        <h2>Skills Demonstrated</h2>
+        <span class="tag">Salesforce Administration</span>
+        <span class="tag">Flow Builder</span>
+        <span class="tag">Record-Triggered Flows</span>
+        <span class="tag">Scheduled Automation</span>
+        <span class="tag">Flow Debugging</span>
+        <span class="tag">Field History Tracking</span>
+        <span class="tag">Data Preparation</span>
+        <span class="tag">CSV</span>
+        <span class="tag">AI Solution Design</span>
+        <span class="tag">Team Collaboration</span>
+      </div>
+    </section>
+
+    <section>
+      <a href="../index.html" class="button">
+        Back to Portfolio
+      </a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Salesforce Shohreh | ReRun Athletics Capstone</p>
+    <p>Per Scholas Salesforce Administration | 2026</p>
+    <p>Built with GitHub Pages</p>
+  </footer>
+
+</body>
+</html>
