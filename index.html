@@ -438,6 +438,19 @@
         font-size: 0.98rem;
       }
     }
+  
+.project-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+  color: #63a7ff;
+  text-decoration: underline;
+}
+
   </style>
 </head>
 <body>
@@ -574,7 +587,11 @@
       <div class="grid">
         <article class="card">
           <span class="status">In Development</span>
-          <h3>Gold Drip | Salesforce Business Solutions</h3>
+        <h3>
+          <a href="projects/gold-drip.html" class="project-link">
+            Gold Drip | Salesforce Business Solutions
+          </a>
+        </h3>
           <p>
             A business-focused Salesforce portfolio project exploring
             CRM operations, workflow optimization, and data management
