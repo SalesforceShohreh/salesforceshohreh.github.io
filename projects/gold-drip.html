@@ -467,6 +467,65 @@
         font-size: clamp(2rem, 10vw, 3rem);
       }
     }
+  
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.evidence-card {
+  margin: 0;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(5, 16, 32, 0.7);
+  border: 1px solid rgba(133, 182, 255, 0.2);
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.evidence-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(240, 200, 107, 0.5);
+}
+
+.evidence-card a {
+  display: block;
+  cursor: zoom-in;
+}
+
+.evidence-card img {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+}
+
+.evidence-card figcaption {
+  padding: 16px 4px 4px;
+}
+
+.evidence-card figcaption strong {
+  color: #ffffff;
+}
+
+.evidence-card figcaption p {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 650px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence-card img {
+    height: auto;
+  }
+}
   </style>
 </head>
 
@@ -800,6 +859,94 @@
         </div>
       </div>
     </section>
+
+<section id="implementation-gallery">
+  <div class="card">
+    <span class="section-kicker">Technical Evidence</span>
+    <h2 class="section-title">
+      Salesforce Implementation Gallery
+    </h2>
+    <p>
+      Selected screenshots documenting my independently
+      configured and tested Salesforce CRM implementation.
+      Click any image to view it at full size.
+    </p>
+
+    <div class="gallery-grid">
+
+      <figure class="evidence-card">
+        <a href="../images/gold-drip/executive-dashboard.png"
+           target="_blank"
+           rel="noopener noreferrer">
+          <img src="../images/gold-drip/executive-dashboard.png"
+               alt="Gold Drip Salesforce Executive Dashboard"
+               loading="lazy">
+        </a>
+        <figcaption>
+          <strong>Executive Dashboard</strong>
+          <p>
+            Configured reports and dashboards for
+            sales pipeline, Cases, wellness participation,
+            and sample requests.
+          </p>
+        </figcaption>
+      </figure>
+
+      <figure class="evidence-card">
+        <a href="../images/gold-drip/flow-activated.png"
+           target="_blank"
+           rel="noopener noreferrer">
+          <img src="../images/gold-drip/flow-activated.png"
+               alt="Activated Salesforce Flow"
+               loading="lazy">
+        </a>
+        <figcaption>
+          <strong>Salesforce Flow Automation</strong>
+          <p>
+            Configured and activated record-triggered
+            automation supporting customer follow-up.
+          </p>
+        </figcaption>
+      </figure>
+
+      <figure class="evidence-card">
+        <a href="../images/gold-drip/opportunity-paths.png"
+           target="_blank"
+           rel="noopener noreferrer">
+          <img src="../images/gold-drip/opportunity-paths.png"
+               alt="Salesforce Opportunity Paths"
+               loading="lazy">
+        </a>
+        <figcaption>
+          <strong>Opportunity Sales Processes</strong>
+          <p>
+            Configured Opportunity Record Types,
+            sales processes, and Paths for differing
+            business workflows.
+          </p>
+        </figcaption>
+      </figure>
+
+      <figure class="evidence-card">
+        <a href="../images/gold-drip/data-validation.png"
+           target="_blank"
+           rel="noopener noreferrer">
+          <img src="../images/gold-drip/data-validation.png"
+               alt="Salesforce data validation evidence"
+               loading="lazy">
+        </a>
+        <figcaption>
+          <strong>Data Quality & Validation</strong>
+          <p>
+            Configured data-quality controls and
+            tested Salesforce record validation.
+          </p>
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
 
     <section>
       <div class="card">
