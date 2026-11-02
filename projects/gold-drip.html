@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +8,20 @@
 
   <style>
     :root {
-      --bg: #07111f;
-      --card: #102039;
-      --text: #eaf2ff;
-      --muted: #b8c7df;
-      --blue: #63a7ff;
-      --line: rgba(133, 182, 255, 0.18);
+      --bg: #06101d;
+      --bg-2: #0b1830;
+      --card: rgba(12, 28, 50, 0.88);
+      --card-solid: #10213d;
+      --text: #edf4ff;
+      --muted: #bfd0e7;
+      --line: rgba(120, 170, 255, 0.18);
+      --blue: #6bb2ff;
+      --blue-2: #3d86f5;
+      --gold: #f0c86b;
+      --gold-soft: rgba(240, 200, 107, 0.16);
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+      --radius: 22px;
+      --radius-sm: 16px;
     }
 
     * { box-sizing: border-box; }
@@ -24,26 +31,27 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top right,
-          rgba(59,130,246,0.16), transparent 35%),
-        var(--bg);
       color: var(--text);
       line-height: 1.7;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(240, 200, 107, 0.08), transparent 22%),
+        radial-gradient(circle at 85% 10%, rgba(91, 162, 255, 0.18), transparent 25%),
+        radial-gradient(circle at 50% 50%, rgba(33, 74, 140, 0.10), transparent 35%),
+        linear-gradient(180deg, #07101d 0%, #08172a 55%, #06101d 100%);
     }
 
-    nav {
-      background: rgba(7,17,31,0.9);
-      padding: 20px 8%;
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.30), rgba(0,0,0,0.08));
+      z-index: 0;
     }
-
-    nav strong { color: white; }
 
     a {
       color: var(--blue);
@@ -52,102 +60,414 @@
 
     a:hover { text-decoration: underline; }
 
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(5, 12, 24, 0.82);
+      border-bottom: 1px solid var(--line);
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .nav-brand {
+      font-weight: bold;
+      color: white;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #d7e7ff;
+      padding: 10px 14px;
+      border: 1px solid rgba(122, 176, 255, 0.16);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      text-decoration: none;
+      background: rgba(107, 178, 255, 0.10);
+      border-color: rgba(107, 178, 255, 0.30);
+    }
+
     .container {
-      max-width: 1050px;
+      position: relative;
+      z-index: 1;
+      max-width: 1140px;
       margin: auto;
-      padding: 45px 24px;
+      padding: 44px 24px 70px;
     }
 
     .hero {
-      padding: 65px 30px;
-      text-align: center;
-      background: linear-gradient(135deg,
-        #0c1930, #173e70);
+      position: relative;
+      overflow: hidden;
+      padding: 58px 34px;
+      border-radius: 30px;
       border: 1px solid var(--line);
-      border-radius: 24px;
+      background:
+        radial-gradient(circle at top right, rgba(240, 200, 107, 0.14), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(91, 162, 255, 0.12), transparent 28%),
+        linear-gradient(135deg, rgba(12,25,48,0.98), rgba(17,44,82,0.96));
+      box-shadow: var(--shadow);
+      text-align: center;
+      isolation: isolate;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(24px);
+      opacity: 0.45;
+      z-index: -1;
+    }
+
+    .hero::before {
+      width: 220px;
+      height: 220px;
+      background: rgba(240, 200, 107, 0.16);
+      top: -40px;
+      right: -30px;
+    }
+
+    .hero::after {
+      width: 180px;
+      height: 180px;
+      background: rgba(79, 147, 255, 0.18);
+      bottom: -50px;
+      left: -20px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #d9ebff;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
     }
 
     .status {
       display: inline-block;
-      color: #ffe2a3;
-      background: rgba(242,200,107,0.13);
-      border: 1px solid rgba(242,200,107,0.25);
-      padding: 6px 14px;
-      border-radius: 30px;
+      color: #ffe7b4;
+      background: rgba(240, 200, 107, 0.10);
+      border: 1px solid rgba(240, 200, 107, 0.24);
+      padding: 7px 16px;
+      border-radius: 999px;
       font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .hero-logo-wrap {
+      margin: 8px auto 22px;
+      width: 118px;
+      height: 118px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      padding: 10px;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
+      border: 1px solid rgba(240, 200, 107, 0.25);
+      box-shadow:
+        0 0 0 8px rgba(255,255,255,0.03),
+        0 0 30px rgba(240, 200, 107, 0.10);
+    }
+
+    .hero-logo {
+      width: 92px;
+      height: 92px;
+      object-fit: contain;
+      border-radius: 18px;
+      display: block;
     }
 
     h1 {
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      line-height: 1.2;
-      margin: 20px 0;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.12;
+      margin: 0 0 18px;
+      letter-spacing: -0.02em;
     }
 
-    h2 {
+    .hero-subtitle {
+      margin: 0 auto 16px;
+      max-width: 860px;
+      color: #cbe0ff;
+      font-size: 1.05rem;
+    }
+
+    .hero-summary {
+      max-width: 780px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      min-width: 180px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      color: #05101f;
+      box-shadow: 0 10px 25px rgba(83, 147, 255, 0.24);
+    }
+
+    .button-primary:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .button-secondary {
+      background: rgba(255,255,255,0.04);
+      color: #e8f3ff;
+      border-color: rgba(255,255,255,0.10);
+    }
+
+    .button-secondary:hover {
+      text-decoration: none;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .stats {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 16px 14px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.4rem;
       color: white;
-      margin-top: 0;
+      margin-bottom: 2px;
     }
 
-    p { color: var(--muted); }
-
-    .hero p {
-      max-width: 680px;
-      margin: auto;
+    .stat span {
+      color: #c6d7ee;
+      font-size: 0.92rem;
     }
 
     section {
-      margin-top: 45px;
-      scroll-margin-top: 30px;
+      margin-top: 34px;
+      scroll-margin-top: 90px;
+    }
+
+    .section-kicker {
+      color: #7ed2ff;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      color: white;
+      font-size: 2rem;
+    }
+
+    .section-subtitle {
+      margin: 0;
+      color: var(--muted);
+      max-width: 760px;
     }
 
     .card {
-      background: rgba(16,32,57,0.85);
+      background: var(--card);
       border: 1px solid var(--line);
-      padding: 30px;
-      border-radius: 18px;
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .card + .card {
+      margin-top: 18px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .sub-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(133, 182, 255, 0.14);
+      border-radius: 18px;
+      padding: 22px;
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .sub-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(240, 200, 107, 0.28);
+      background: rgba(255,255,255,0.045);
+    }
+
+    .sub-card h3,
+    .card h2,
+    .card h3 {
+      color: white;
+      margin-top: 0;
+    }
+
+    .icon-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(240, 200, 107, 0.10);
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      border: 1px solid rgba(240, 200, 107, 0.18);
     }
 
     .tag {
       display: inline-block;
-      padding: 6px 12px;
-      background: rgba(99,167,255,0.12);
-      border-radius: 20px;
-      color: #dcecff;
-      font-size: 0.85rem;
-      margin: 5px 5px 5px 0;
+      padding: 8px 14px;
+      margin: 6px 8px 0 0;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      color: #eff6ff;
+      background: rgba(80, 138, 222, 0.16);
+      border: 1px solid rgba(99,167,255,0.10);
     }
 
-    .button {
-      display: inline-block;
-      padding: 12px 22px;
-      background: var(--blue);
-      color: #07111f;
-      border-radius: 10px;
-      font-weight: bold;
+    .gold-tag {
+      background: rgba(240, 200, 107, 0.12);
+      border-color: rgba(240, 200, 107, 0.22);
+      color: #ffeab9;
     }
 
-    .button:hover {
-      background: #a8d4ff;
-      text-decoration: none;
+    .list-check {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .list-check li {
+      margin-bottom: 10px;
+    }
+
+    .highlight-box {
+      background: linear-gradient(180deg, rgba(240, 200, 107, 0.08), rgba(255,255,255,0.02));
+      border: 1px solid rgba(240, 200, 107, 0.20);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .evidence-note {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px dashed rgba(240, 200, 107, 0.28);
+      background: rgba(240, 200, 107, 0.05);
+      color: #e7f0ff;
+    }
+
+    .video-placeholder {
+      text-align: center;
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px dashed rgba(107, 178, 255, 0.28);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .video-placeholder strong {
+      display: block;
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .footer-cta {
+      text-align: center;
+      margin-top: 12px;
     }
 
     footer {
+      position: relative;
+      z-index: 1;
       text-align: center;
-      padding: 35px;
+      padding: 34px 24px 46px;
       border-top: 1px solid var(--line);
-      margin-top: 60px;
+      margin-top: 56px;
+      color: var(--muted);
     }
 
-    @media (max-width: 600px) {
-      .hero { padding: 45px 20px; }
-      .card { padding: 22px; }
+    @media (max-width: 760px) {
+      .hero {
+        padding: 46px 22px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 10vw, 3rem);
+      }
     }
   </style>
 </head>
@@ -155,246 +475,382 @@
 <body>
 
   <nav>
-    <strong>Salesforce Shohreh</strong>
-    <a href="../index.html">← Back to Portfolio</a>
+    <div class="nav-brand">Salesforce Shohreh</div>
+    <a class="nav-link" href="../index.html">← Back to Portfolio</a>
   </nav>
 
   <main class="container">
 
-    <header class="hero"> 
-  <span class="status">Salesforce Implementation Completed</span>
+    <header class="hero">
+      <div class="eyebrow">Salesforce Capstone Case Study</div>
+      <div class="status">Implementation Completed</div>
+
+      <div class="hero-logo-wrap">
+        <img
+          src="../images/gold-drip-logo.png"
+          alt="Gold Drip logo"
+          class="hero-logo"
+        >
+      </div>
+
       <h1>Gold Drip | Salesforce Business Solutions</h1>
-  <p>
-    An independently designed and implemented
-    Salesforce CRM solution demonstrating
-    administration, custom data modeling,
-    automation, sales and service processes,
-    generative AI, reporting, and security.
-  </p>
-      </header>
-  
-<section>
-  <div class="card">
-    <h2>Company Overview | Gold Drip</h2>
 
-    <h3>Where the Company Started</h3>
-    <p>
-      Gold Drip began as a wellness-focused business
-      offering physical wellness products through
-      an e-commerce storefront. As the business
-      evolved, managing customer relationships
-      and expanding services required capabilities
-      beyond traditional online transactions.
-    </p>
+      <p class="hero-subtitle">
+        Independently designed and implemented Salesforce CRM solution for a growing wellness brand.
+      </p>
 
-    <h3>Where the Company Is Going</h3>
-    <p>
-      Gold Drip's vision is to expand into a broader
-      wellness ecosystem incorporating digital
-      wellness programs, fitness resources,
-      educational content, meal-preparation
-      resources, books, and personalized
-      consultations.
-    </p>
+      <p class="hero-summary">
+        This project demonstrates hands-on Salesforce administration, custom data modeling, data imports,
+        sales and service process configuration, automation, Prompt Builder, reporting, dashboards, and
+        role-based security using fictional business data created for configuration, testing, and documentation.
+      </p>
 
-    <h3>Why Salesforce Was Implemented</h3>
-    <p>
-      Supporting this business direction requires
-      centralized customer information, organized
-      sales and service processes, consistent
-      follow-up, reporting, and controlled access
-      to business records.
-    </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#solution-areas">View Solution Areas</a>
+        <a class="button button-secondary" href="#evidence">View Project Evidence</a>
+      </div>
 
-    <p>
-      I independently implemented a Salesforce CRM
-      solution to address these operational needs
-      and establish a structured foundation for
-      Gold Drip's evolving business model.
-    </p>
-  </div>
-</section>
+      <div class="stats">
+        <div class="stat">
+          <strong>9</strong>
+          <span>Core project workstreams completed</span>
+        </div>
+        <div class="stat">
+          <strong>20</strong>
+          <span>Rubric-aligned requirements completed</span>
+        </div>
+        <div class="stat">
+          <strong>100%</strong>
+          <span>Fictional demo data used for safe portfolio sharing</span>
+        </div>
+        <div class="stat">
+          <strong>1</strong>
+          <span>Remaining step: final video walkthrough</span>
+        </div>
+      </div>
+    </header>
 
-      <section>
-        <div class="card">
-          <h2>Project Overview</h2>     
-    <p>
-      Gold Drip is an independent Salesforce Administrator
-      capstone project developed to demonstrate
-      end-to-end CRM implementation and business
-      process optimization.
-    </p>
-  
-    <p>
-      I personally configured and tested Salesforce
-      organization settings, standard and custom
-      objects, data imports, product catalogs,
-      Opportunity sales processes, Flow automation,
-      Case Management, Prompt Builder, executive
-      dashboards, and role-based security.
-    </p>
-    
-    <p>
-      The project uses fictional customer records
-      and demonstration datasets created specifically
-      for Salesforce configuration, testing,
-      and documentation. The Salesforce implementation
-      is complete, with final presentation preparation
-      and video walkthrough remaining.
-    </p>
+    <section>
+      <div class="card">
+        <span class="section-kicker">Business Context</span>
+        <h2 class="section-title">Company Overview | Gold Drip</h2>
+        <p class="section-subtitle">
+          A fictional wellness business scenario created to demonstrate how Salesforce can support growth,
+          service delivery, customer relationship management, and process structure.
+        </p>
+
+        <div class="grid-3" style="margin-top: 24px;">
+          <div class="sub-card">
+            <div class="icon-badge">01</div>
+            <h3>Where the Company Started</h3>
+            <p>
+              Gold Drip began as a wellness-focused business offering physical products through an e-commerce
+              storefront. As operations expanded, customer information and follow-up activities required a more
+              structured system than standalone online transactions could provide.
+            </p>
+          </div>
+
+          <div class="sub-card">
+            <div class="icon-badge">02</div>
+            <h3>Where the Company Is Going</h3>
+            <p>
+              The business vision expands beyond products into a broader wellness ecosystem that includes
+              consultations, educational content, fitness resources, wellness programs, and more personalized
+              customer experiences.
+            </p>
+          </div>
+
+          <div class="sub-card">
+            <div class="icon-badge">03</div>
+            <h3>Why Salesforce Was Implemented</h3>
+            <p>
+              This direction requires centralized customer data, organized sales and service processes,
+              better follow-up visibility, reporting, automation, and secure access to business information.
+            </p>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 22px;">
+          <h3 style="margin-bottom: 10px;">Implementation Goal</h3>
+          <p style="margin-bottom: 0;">
+            I independently implemented a Salesforce CRM solution to create a structured operational foundation
+            for Gold Drip’s evolving business model and to demonstrate end-to-end Salesforce Administrator
+            capabilities in a realistic business scenario.
+          </p>
+        </div>
       </div>
     </section>
 
-<section>
-  <div class="card">
-    <h2>Independent Project Ownership</h2>
+    <section>
+      <div class="grid-2">
+        <div class="card">
+          <span class="section-kicker">Project Summary</span>
+          <h2>Project Overview</h2>
+          <p>
+            Gold Drip is an independent Salesforce Administrator capstone project created to demonstrate
+            end-to-end CRM implementation, business process optimization, and platform configuration across
+            multiple functional areas.
+          </p>
+          <p>
+            I personally configured organization settings, standard and custom objects, product and business
+            data imports, opportunity sales processes, Flow automation, Case Management, Prompt Builder,
+            dashboards, reports, and role-based security.
+          </p>
+          <p>
+            The Salesforce implementation is complete. The remaining deliverables are final presentation
+            preparation and a narrated video walkthrough.
+          </p>
+        </div>
 
-    <p>
-      Gold Drip is an independently managed Salesforce
-      CRM and digital transformation project.
-      I am responsible for project planning,
-      Salesforce administration, data management,
-      technical documentation, and ongoing development.
-    </p>
-
-    <p>
-      I personally prepared, updated, and imported
-      Salesforce records to organize CRM data
-      and support evolving business requirements.
-    </p>
-
-    <p>
-      I independently developed the project's
-      solution architecture and implementation plans,
-      including proposed CRM workflows,
-      data governance, and future integration
-      considerations. Additional platform
-      capabilities remain in development.
-    </p>
-  </div>
-</section>
+        <div class="card">
+          <span class="section-kicker">Project Ownership</span>
+          <h2>Independent Project Ownership</h2>
+          <p>
+            Gold Drip is an independently managed Salesforce CRM and digital transformation project.
+            I was responsible for project planning, Salesforce administration, configuration decisions,
+            data management, testing, and technical documentation.
+          </p>
+          <p>
+            I personally prepared, updated, and imported fictional Salesforce records to support CRM workflows
+            and demonstrate scalable business process design.
+          </p>
+          <p>
+            I also independently developed the project’s solution architecture, implementation approach,
+            documentation structure, and future-state recommendations.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <section>
-      <h2>Project Focus Areas</h2>
+      <div class="card">
+        <span class="section-kicker">Problem & Solution</span>
+        <h2 class="section-title">Business Problems & Salesforce Solutions</h2>
 
-      <div class="grid">
+        <div class="grid-3" style="margin-top: 18px;">
+          <div class="sub-card">
+            <h3>Challenge 1</h3>
+            <p><strong>Problem:</strong> Customer information, products, service activity, and follow-up processes needed more structure.</p>
+            <p><strong>Solution:</strong> Configured Salesforce objects, organized CRM records, and created a structured data foundation.</p>
+          </div>
+
+          <div class="sub-card">
+            <h3>Challenge 2</h3>
+            <p><strong>Problem:</strong> Sales and service workflows needed visibility, consistency, and better status tracking.</p>
+            <p><strong>Solution:</strong> Built opportunity processes, case management structure, reporting, and dashboards.</p>
+          </div>
+
+          <div class="sub-card">
+            <h3>Challenge 3</h3>
+            <p><strong>Problem:</strong> The business needed scalable systems, automation, and secure platform access.</p>
+            <p><strong>Solution:</strong> Implemented Flow automation, Prompt Builder planning, and role-based security design.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solution-areas">
+      <span class="section-kicker">Completed Work</span>
+      <h2 class="section-title">Completed Salesforce Solution Areas</h2>
+      <p class="section-subtitle">
+        These are the major implementation areas completed as part of the Gold Drip Salesforce project.
+      </p>
+
+      <div class="grid" style="margin-top: 20px;">
+        <div class="sub-card">
+          <div class="icon-badge">1</div>
+          <h3>Organization Setup</h3>
+          <p>Configured the Salesforce environment and established the project foundation for future implementation work.</p>
+        </div>
+
+        <div class="sub-card">
+          <div class="icon-badge">2</div>
+          <h3>Custom Objects & Data Model</h3>
+          <p>Built a structured CRM data model aligned with business needs and data quality requirements.</p>
+        </div>
+
+        <div class="sub-card">
+          <div class="icon-badge">3</div>
+          <h3>Data Import & Product Catalog</h3>
+          <p>Prepared, standardized, and imported fictional business records and product-related data for CRM use.</p>
+        </div>
+
+        <div class="sub-card">
+          <div class="icon-badge">4</div>
+          <h3>Sales Process & Opportunity Management</h3>
+          <p>Configured opportunity records, stage processes, and supporting workflows for a structured sales pipeline.</p>
+        </div>
+
+        <div class="sub-card">
+          <div class="icon-badge">5</div>
+          <h3>Automation & Flow</h3>
+          <p>Designed and configured Salesforce automation to support consistent process execution and operational efficiency.</p>
+        </div>
+
+        <div class="sub-card">
+          <div class="icon-badge">6</div>
+          <h3>Case Management & Service</h3>
+          <p>Implemented service-related configuration to support organized case handling and customer support workflows.</p>
+        </div>
+
+        <div class="sub-card">
+          <div class="icon-badge">7</div>
+          <h3>Prompt Builder & AI</h3>
+          <p>Planned and documented a Prompt Builder use case aligned with customer service efficiency and responsible AI use.</p>
+        </div>
+
+        <div class="sub-card">
+          <div class="icon-badge">8</div>
+          <h3>Reports & Dashboards</h3>
+          <p>Created executive-style reporting views to monitor pipeline, cases, participation, and other business activity.</p>
+        </div>
+
+        <div class="sub-card">
+          <div class="icon-badge">9</div>
+          <h3>Security & Scalable Access</h3>
+          <p>Configured role-based access considerations and platform security structure to support controlled visibility.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid-3">
         <div class="card">
+          <span class="section-kicker">Focus Area</span>
           <h2>CRM Operations</h2>
-      <p>
-        Independently managing Salesforce CRM activities
-        to organize business records, support customer
-        information management, and evaluate workflows
-        aligned with evolving operational requirements.
-      </p>
+          <p>
+            Managed Salesforce CRM activities to organize business records, support customer information
+            management, and align workflows with evolving operational requirements.
+          </p>
         </div>
 
         <div class="card">
+          <span class="section-kicker">Focus Area</span>
           <h2>Data Management</h2>
-      <p>
-        Personally preparing, updating, and importing
-        Salesforce records to maintain organized CRM
-        data and support consistent information
-        management across business processes.
-      </p>
+          <p>
+            Prepared, updated, standardized, and imported fictional business records to maintain organized CRM data
+            and support consistent information management across business processes.
+          </p>
         </div>
 
         <div class="card">
+          <span class="section-kicker">Focus Area</span>
           <h2>Process Improvement</h2>
-      <p>
-        Analyzing business workflows and documenting
-        opportunities for process improvement,
-        automation, and scalable Salesforce solutions
-        as the project continues to develop.
-      </p>
+          <p>
+            Analyzed business workflows and documented opportunities for process improvement, automation,
+            scalable operations, and stronger Salesforce structure.
+          </p>
         </div>
       </div>
     </section>
 
-<section>
-  <div class="card">
-    <h2>Salesforce Data Administration & Evidence</h2>
-
-    <p>
-      As the sole administrator of the Gold Drip
-      Salesforce project, I independently performed
-      hands-on CRM data management activities,
-      including preparing, updating, and importing
-      Salesforce records.
-    </p>
-
-    <p>
-      This work supports organized business records,
-      consistent information management, and
-      the development of a structured CRM foundation
-      for evolving operational needs.
-    </p>
-
-    <h3>Completed Salesforce Work</h3>
-    <ul>
-      <li>
-        Prepared business records for Salesforce.
-      </li>
-      <li>
-        Updated and maintained CRM record information.
-      </li>
-      <li>
-        Imported records directly into Salesforce.
-      </li>
-      <li>
-        Independently managed project data activities.
-      </li>
-    </ul>
-
-    <h3>Technical Evidence</h3>
-    <p>
-      Selected screenshots of Salesforce record
-      management and data import activities will
-      be added following a review for sensitive
-      business information.
-    </p>
-  </div>
-</section>
-
-    <section>
+    <section id="evidence">
       <div class="card">
-        <h2>Technologies & Skills</h2>
-        <span class="tag">Salesforce CRM</span>
-        <span class="tag">Business Analysis</span>
-        <span class="tag">Data Management</span>
-        <span class="tag">Process Improvement</span>
-        <span class="tag">Requirements Gathering</span>
+        <span class="section-kicker">Technical Validation</span>
+        <h2 class="section-title">Salesforce Data Administration & Evidence</h2>
+
+        <p>
+          As the sole administrator of the Gold Drip Salesforce project, I independently performed hands-on
+          CRM data management activities, including preparing, updating, standardizing, and importing Salesforce records.
+        </p>
+
+        <p>
+          This work supported organized business records, consistent information management, platform testing,
+          and the development of a structured CRM foundation for evolving operational needs.
+        </p>
+
+        <div class="grid-2" style="margin-top: 18px;">
+          <div class="sub-card">
+            <h3>Completed Salesforce Work</h3>
+            <ul class="list-check">
+              <li>Prepared fictional business records for Salesforce.</li>
+              <li>Updated and maintained CRM record information.</li>
+              <li>Built structured datasets for import and testing.</li>
+              <li>Configured record-based solution components across the project.</li>
+              <li>Independently managed project data activities and supporting documentation.</li>
+            </ul>
+          </div>
+
+          <div class="sub-card">
+            <h3>Evidence Available</h3>
+            <ul class="list-check">
+              <li>Fictional lead and opportunity import files</li>
+              <li>Project workbook and dataset preparation screenshots</li>
+              <li>Executive dashboard screenshots</li>
+              <li>Configuration documentation across project workstreams</li>
+              <li>Prompt Builder and reporting documentation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="evidence-note">
+          <strong>Portfolio Note:</strong> All project data shown in this portfolio is fictional and was created
+          specifically for configuration, testing, reporting, and documentation. No real customer data is used.
+        </div>
       </div>
     </section>
 
     <section>
       <div class="card">
+        <span class="section-kicker">Skill Stack</span>
+        <h2>Technologies & Skills</h2>
+
+        <div style="margin-top: 10px;">
+          <span class="tag">Salesforce Administration</span>
+          <span class="tag">Salesforce CRM</span>
+          <span class="tag">Custom Objects</span>
+          <span class="tag">Data Modeling</span>
+          <span class="tag">Data Import</span>
+          <span class="tag">Data Quality</span>
+          <span class="tag">Process Automation</span>
+          <span class="tag">Flow Builder</span>
+          <span class="tag">Case Management</span>
+          <span class="tag">Opportunity Management</span>
+          <span class="tag">Reports & Dashboards</span>
+          <span class="tag">Prompt Builder</span>
+          <span class="tag">Business Analysis</span>
+          <span class="tag">Requirements Gathering</span>
+          <span class="tag">Process Improvement</span>
+          <span class="tag">Technical Documentation</span>
+          <span class="tag gold-tag">AI Use Case Planning</span>
+          <span class="tag gold-tag">Role-Based Security</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <span class="section-kicker">Completion Status</span>
         <h2>Development & Testing</h2>
         <p>
-          This project is in active development.
-          Verified configurations, testing results,
-          and technical demonstrations will be
-          documented as project milestones are completed.
+          The Gold Drip Salesforce implementation is completed. Configuration, documentation, and project evidence
+          have been developed across the major solution areas required by the project rubric.
+        </p>
+        <p>
+          Remaining work is focused on final presentation readiness, public-facing portfolio refinement, and
+          recording a video walkthrough demonstrating the completed Salesforce solution.
         </p>
       </div>
     </section>
 
     <section>
       <div class="card">
-        <h2>Project Demonstrations</h2>
-        <p>
-          Salesforce screenshots, sanitized
-          configuration examples, and narrated
-          demonstrations will be added when
-          they are ready for public sharing.
-        </p>
-        <span class="status">Coming Soon</span>
+        <span class="section-kicker">Presentation</span>
+        <h2>Project Demonstration</h2>
+
+        <div class="video-placeholder">
+          <strong>Video Walkthrough Coming Soon</strong>
+          <p style="margin: 0 0 14px; color: var(--muted);">
+            A narrated walkthrough of the completed Gold Drip Salesforce implementation will be added here
+            after final presentation recording is complete.
+          </p>
+          <span class="status">Final Video In Progress</span>
+        </div>
       </div>
     </section>
 
-    <section>
-      <a class="button" href="../index.html">
-        Back to Portfolio
-      </a>
+    <section class="footer-cta">
+      <a class="button button-primary" href="../index.html">Back to Portfolio</a>
     </section>
 
   </main>
